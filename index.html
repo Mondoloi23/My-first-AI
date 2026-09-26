@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">✦ My AI</div>
+      <button id="newChat" class="new-chat">＋ New chat</button>
+      <div class="sidebar-bottom">
+        <p>Personal AI Assistant</p>
+      </div>
+    </aside>
+
+    <section class="main">
+      <header class="topbar">
+        <div>
+          <h1>My AI</h1>
+          <span id="status">Ready</span>
+        </div>
+        <button id="clearChat" class="icon-button" title="Clear conversation">⌫</button>
+      </header>
+
+      <main id="chat" class="chat">
+        <div id="welcome" class="welcome">
+          <div class="logo">✦</div>
+          <h2>How can I help?</h2>
+          <p>Ask me anything, learn something, or start building.</p>
+          <div class="suggestions">
+            <button>Explain quantum computing simply</button>
+            <button>Help me build a Python project</button>
+            <button>Give me a study plan</button>
+          </div>
+        </div>
+      </main>
+
+      <div class="composer-wrap">
+        <form id="chatForm" class="composer">
+          <textarea id="messageInput" rows="1"
+            placeholder="Message My AI..." autocomplete="off"></textarea>
+          <button type="button" id="micButton" class="round" title="Voice input">🎙</button>
+          <button type="submit" id="sendButton" class="send">↑</button>
+        </form>
+        <small>My AI can make mistakes. Check important information.</small>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
