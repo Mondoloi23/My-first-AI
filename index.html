@@ -3,53 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My AI</title>
-  <link rel="stylesheet" href="style.css">
+  <title>My AI v5</title>
+  <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar">
-      <div class="brand">✦ My AI</div>
-      <button id="newChat" class="new-chat">＋ New chat</button>
-      <div class="sidebar-bottom">
-        <p>Personal AI Assistant</p>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand-row">
+      <div class="brand">My AI</div>
+      <button class="icon-btn mobile-only" id="closeSidebar" aria-label="Close menu">×</button>
+    </div>
+
+    <button class="new-chat" id="newChat">＋ New chat</button>
+    <div class="chat-list" id="chatList"></div>
+
+    <div class="sidebar-bottom">
+      <button class="settings-btn" id="settingsBtn">⚙ Settings</button>
+      <div class="version">My AI v5</div>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <main class="app">
+    <header class="topbar">
+      <button class="icon-btn mobile-only" id="openSidebar" aria-label="Open menu">☰</button>
+      <div class="chat-heading">
+        <strong id="chatTitle">New chat</strong>
+        <span id="status">Ready</span>
       </div>
-    </aside>
+      <button class="icon-btn" id="clearChat" title="Clear current chat">⌫</button>
+    </header>
 
-    <section class="main">
-      <header class="topbar">
-        <div>
-          <h1>My AI</h1>
-          <span id="status">Ready</span>
+    <section class="messages" id="messages">
+      <div class="welcome" id="welcome">
+        <div class="logo-mark">✦</div>
+        <h1>What can I help you build?</h1>
+        <p>My AI v5 is ready. Ask a question, write code, study a topic, or start a project.</p>
+        <div class="suggestions">
+          <button data-prompt="Explain a difficult topic to me step by step.">Explain a topic</button>
+          <button data-prompt="Help me build a Python project.">Build with Python</button>
+          <button data-prompt="Teach me JavaScript from beginner to advanced.">Learn JavaScript</button>
         </div>
-        <button id="clearChat" class="icon-button" title="Clear conversation">⌫</button>
-      </header>
-
-      <main id="chat" class="chat">
-        <div id="welcome" class="welcome">
-          <div class="logo">✦</div>
-          <h2>How can I help?</h2>
-          <p>Ask me anything, learn something, or start building.</p>
-          <div class="suggestions">
-            <button>Explain quantum computing simply</button>
-            <button>Help me build a Python project</button>
-            <button>Give me a study plan</button>
-          </div>
-        </div>
-      </main>
-
-      <div class="composer-wrap">
-        <form id="chatForm" class="composer">
-          <textarea id="messageInput" rows="1"
-            placeholder="Message My AI..." autocomplete="off"></textarea>
-          <button type="button" id="micButton" class="round" title="Voice input">🎙</button>
-          <button type="submit" id="sendButton" class="send">↑</button>
-        </form>
-        <small>My AI can make mistakes. Check important information.</small>
       </div>
     </section>
-  </div>
 
-  <script src="script.js"></script>
+    <form class="composer" id="chatForm">
+      <textarea id="input" rows="1" placeholder="Message My AI..." autocomplete="off"></textarea>
+      <button class="voice-btn" id="voiceBtn" type="button" title="Voice input">🎙</button>
+      <button class="send-btn" id="send" type="submit">➤</button>
+    </form>
+    <div class="composer-note">My AI can make mistakes. Check important information.</div>
+  </main>
+
+  <dialog id="settingsDialog">
+    <div class="dialog-head">
+      <h2>Settings</h2>
+      <button class="icon-btn" id="closeSettings">×</button>
+    </div>
+    <label>Model
+      <input id="modelInput" value="openrouter/free" placeholder="OpenRouter model ID">
+    </label>
+    <label>Temperature
+      <input id="temperatureInput" type="range" min="0" max="2" step="0.1" value="0.7">
+      <span id="temperatureValue">0.7</span>
+    </label>
+    <p class="settings-note">The API key stays on the server in your private <code>.env</code> file.</p>
+    <button class="primary" id="saveSettings">Save settings</button>
+  </dialog>
+
+  <script src="/static/script.js"></script>
 </body>
 </html>
