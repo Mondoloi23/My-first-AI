@@ -459,3 +459,35 @@ dialog input[type="range"] {
     max-width: 85%;
   }
 }
+
+/* FORCE CHAT INPUT TO BE VISIBLE */
+.composer {
+  display: flex !important;
+  position: fixed !important;
+  left: calc(260px + (100% - 260px) / 2) !important;
+  bottom: 35px !important;
+  transform: translateX(-50%) !important;
+  width: min(760px, calc(100% - 300px)) !important;
+  min-height: 60px !important;
+  background: #15181d !important;
+  border: 2px solid #444b56 !important;
+  z-index: 9999 !important;
+}
+
+#input {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: white !important;
+  background: transparent !important;
+  min-height: 40px !important;
+  flex: 1 !important;
+}
+
+@media (max-width: 700px) {
+  .composer {
+    left: 50% !important;
+    width: calc(100% - 20px) !important;
+    bottom: 20px !important;
+  }
+}
